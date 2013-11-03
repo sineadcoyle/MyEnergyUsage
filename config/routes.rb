@@ -53,4 +53,7 @@ MyEnergyUsage::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  # Set root URL
+  root :to => "home#index"
 end
