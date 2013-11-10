@@ -46,3 +46,6 @@ end
 
 #Devise
 gem 'devise'
+
+#Haml
+gem 'haml-rails'
