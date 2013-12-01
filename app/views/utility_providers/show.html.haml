@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @utility_provider.name
+%p
+  %b Co2 coefficient:
+  = @utility_provider.co2_coefficient
+%p
+  %b Active:
+  = @utility_provider.active
+
+= link_to 'Edit', edit_utility_provider_path(@utility_provider)
+\|
+= link_to 'Back', utility_providers_path

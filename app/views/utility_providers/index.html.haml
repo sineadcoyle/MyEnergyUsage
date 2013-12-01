@@ -1,0 +1,23 @@
+%h1 Listing utility_providers
+
+%table
+  %tr
+    %th Name
+    %th Co2 coefficient
+    %th Active
+    %th
+    %th
+    %th
+
+  - @utility_providers.each do |utility_provider|
+    %tr
+      %td= utility_provider.name
+      %td= utility_provider.co2_coefficient
+      %td= utility_provider.active
+      %td= link_to 'Show', utility_provider
+      %td= link_to 'Edit', edit_utility_provider_path(utility_provider)
+      %td= link_to 'Destroy', utility_provider, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Utility provider', new_utility_provider_path

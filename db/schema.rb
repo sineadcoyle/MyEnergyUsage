@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103234251) do
+ActiveRecord::Schema.define(version: 20131201143915) do
 
   create_table "members", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,5 +30,13 @@ ActiveRecord::Schema.define(version: 20131103234251) do
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
+
+  create_table "utility_providers", force: true do |t|
+    t.string   "name"
+    t.decimal  "co2_coefficient", precision: 10, scale: 0
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
