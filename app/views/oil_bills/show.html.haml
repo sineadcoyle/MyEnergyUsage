@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Start date:
+  = @oil_bill.start_date
+%p
+  %b End date:
+  = @oil_bill.end_date
+%p
+  %b Volume:
+  = @oil_bill.volume
+%p
+  %b Net cost:
+  = @oil_bill.net_cost
+%p
+  %b Gross cost:
+  = @oil_bill.gross_cost
+%p
+  %b Members:
+  = @oil_bill.members
+
+= link_to 'Edit', edit_oil_bill_path(@oil_bill)
+\|
+= link_to 'Back', oil_bills_path

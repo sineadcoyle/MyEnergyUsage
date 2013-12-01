@@ -1,0 +1,29 @@
+%h1 Listing oil_bills
+
+%table
+  %tr
+    %th Start date
+    %th End date
+    %th Volume
+    %th Net cost
+    %th Gross cost
+    %th Members
+    %th
+    %th
+    %th
+
+  - @oil_bills.each do |oil_bill|
+    %tr
+      %td= oil_bill.start_date
+      %td= oil_bill.end_date
+      %td= oil_bill.volume
+      %td= oil_bill.net_cost
+      %td= oil_bill.gross_cost
+      %td= oil_bill.members
+      %td= link_to 'Show', oil_bill
+      %td= link_to 'Edit', edit_oil_bill_path(oil_bill)
+      %td= link_to 'Destroy', oil_bill, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Oil bill', new_oil_bill_path
