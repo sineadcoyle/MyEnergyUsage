@@ -44,8 +44,17 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-#Devise
+# Devise
 gem 'devise'
 
-#Haml
+# Haml
 gem 'haml-rails'
+
+# Testing
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'shoulda'
+  gem 'cucumber-rails'
+end
