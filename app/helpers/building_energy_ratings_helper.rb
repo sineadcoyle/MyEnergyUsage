@@ -1,0 +1,2 @@
+module BuildingEnergyRatingsHelper
+end

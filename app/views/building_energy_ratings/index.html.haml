@@ -1,0 +1,21 @@
+%h1 Listing building_energy_ratings
+
+%table
+  %tr
+    %th Building rating
+    %th Annual energy
+    %th
+    %th
+    %th
+
+  - @building_energy_ratings.each do |building_energy_rating|
+    %tr
+      %td= building_energy_rating.building_rating
+      %td= building_energy_rating.annual_energy
+      %td= link_to 'Show', building_energy_rating
+      %td= link_to 'Edit', edit_building_energy_rating_path(building_energy_rating)
+      %td= link_to 'Destroy', building_energy_rating, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Building energy rating', new_building_energy_rating_path

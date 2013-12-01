@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Building rating:
+  = @building_energy_rating.building_rating
+%p
+  %b Annual energy:
+  = @building_energy_rating.annual_energy
+
+= link_to 'Edit', edit_building_energy_rating_path(@building_energy_rating)
+\|
+= link_to 'Back', building_energy_ratings_path

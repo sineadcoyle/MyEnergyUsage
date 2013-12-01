@@ -1,0 +1,16 @@
+= form_for @building_energy_rating do |f|
+  - if @building_energy_rating.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@building_energy_rating.errors.count, "error")} prohibited this building_energy_rating from being saved:"
+      %ul
+        - @building_energy_rating.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :building_rating
+    = f.text_field :building_rating
+  .field
+    = f.label :annual_energy
+    = f.text_field :annual_energy
+  .actions
+    = f.submit 'Save'

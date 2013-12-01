@@ -1,4 +1,6 @@
 MyEnergyUsage::Application.routes.draw do
+  resources :building_energy_ratings
+
   resources :utility_providers
 
   devise_for :members

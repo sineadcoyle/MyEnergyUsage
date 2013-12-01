@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201143915) do
+ActiveRecord::Schema.define(version: 20131201153018) do
+
+  create_table "building_energy_ratings", force: true do |t|
+    t.string   "building_rating", limit: 1,                          null: false
+    t.decimal  "annual_energy",             precision: 10, scale: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "members", force: true do |t|
     t.string   "email",                  default: "", null: false
