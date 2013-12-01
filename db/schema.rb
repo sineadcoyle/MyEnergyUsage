@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201153521) do
+ActiveRecord::Schema.define(version: 20131201154813) do
 
   create_table "building_energy_ratings", force: true do |t|
     t.string   "building_rating", limit: 1,                          null: false
@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 20131201153521) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "electricity_bills", force: true do |t|
+    t.datetime "start_date",                                             null: false
+    t.datetime "end_date",                                               null: false
+    t.decimal  "electricity_day_consumption",   precision: 10, scale: 0, null: false
+    t.decimal  "electricity_night_consumption", precision: 10, scale: 0, null: false
+    t.decimal  "day_cost",                      precision: 10, scale: 0
+    t.decimal  "night_cost",                    precision: 10, scale: 0
+    t.decimal  "gross_cost",                    precision: 10, scale: 0
+    t.boolean  "active",                                                 null: false
+    t.integer  "members_id",                                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "electricity_bills", ["members_id"], name: "index_electricity_bills_on_members_id", using: :btree
 
   create_table "gas_bills", force: true do |t|
     t.datetime "start_date",                                 null: false

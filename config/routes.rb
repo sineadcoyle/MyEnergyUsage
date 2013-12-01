@@ -1,4 +1,6 @@
 MyEnergyUsage::Application.routes.draw do
+  resources :electricity_bills
+
   resources :gas_bills
 
   resources :building_energy_ratings

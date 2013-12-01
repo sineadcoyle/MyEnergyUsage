@@ -1,0 +1,1 @@
+json.extract! @electricity_bill, :start_date, :end_date, :electricity_day_consumption, :electricity_night_consumption, :day_cost, :night_cost, :gross_cost, :active, :members_id, :created_at, :updated_at

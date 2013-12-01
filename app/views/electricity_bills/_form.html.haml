@@ -1,0 +1,37 @@
+= form_for @electricity_bill do |f|
+  - if @electricity_bill.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@electricity_bill.errors.count, "error")} prohibited this electricity_bill from being saved:"
+      %ul
+        - @electricity_bill.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :start_date
+    = f.text_field :start_date
+  .field
+    = f.label :end_date
+    = f.datetime_select :end_date
+  .field
+    = f.label :electricity_day_consumption
+    = f.text_field :electricity_day_consumption
+  .field
+    = f.label :electricity_night_consumption
+    = f.text_field :electricity_night_consumption
+  .field
+    = f.label :day_cost
+    = f.text_field :day_cost
+  .field
+    = f.label :night_cost
+    = f.text_field :night_cost
+  .field
+    = f.label :gross_cost
+    = f.text_field :gross_cost
+  .field
+    = f.label :active
+    = f.check_box :active
+  .field
+    = f.label :members
+    = f.text_field :members
+  .actions
+    = f.submit 'Save'

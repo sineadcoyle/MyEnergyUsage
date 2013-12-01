@@ -1,0 +1,35 @@
+%h1 Listing electricity_bills
+
+%table
+  %tr
+    %th Start date
+    %th End date
+    %th Electricity day consumption
+    %th Electricity night consumption
+    %th Day cost
+    %th Night cost
+    %th Gross cost
+    %th Active
+    %th Members
+    %th
+    %th
+    %th
+
+  - @electricity_bills.each do |electricity_bill|
+    %tr
+      %td= electricity_bill.start_date
+      %td= electricity_bill.end_date
+      %td= electricity_bill.electricity_day_consumption
+      %td= electricity_bill.electricity_night_consumption
+      %td= electricity_bill.day_cost
+      %td= electricity_bill.night_cost
+      %td= electricity_bill.gross_cost
+      %td= electricity_bill.active
+      %td= electricity_bill.members
+      %td= link_to 'Show', electricity_bill
+      %td= link_to 'Edit', edit_electricity_bill_path(electricity_bill)
+      %td= link_to 'Destroy', electricity_bill, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Electricity bill', new_electricity_bill_path

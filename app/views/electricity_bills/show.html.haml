@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Start date:
+  = @electricity_bill.start_date
+%p
+  %b End date:
+  = @electricity_bill.end_date
+%p
+  %b Electricity day consumption:
+  = @electricity_bill.electricity_day_consumption
+%p
+  %b Electricity night consumption:
+  = @electricity_bill.electricity_night_consumption
+%p
+  %b Day cost:
+  = @electricity_bill.day_cost
+%p
+  %b Night cost:
+  = @electricity_bill.night_cost
+%p
+  %b Gross cost:
+  = @electricity_bill.gross_cost
+%p
+  %b Active:
+  = @electricity_bill.active
+%p
+  %b Members:
+  = @electricity_bill.members
+
+= link_to 'Edit', edit_electricity_bill_path(@electricity_bill)
+\|
+= link_to 'Back', electricity_bills_path
