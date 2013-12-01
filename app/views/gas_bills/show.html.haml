@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Start date:
+  = @gas_bill.start_date
+%p
+  %b End date:
+  = @gas_bill.end_date
+%p
+  %b Gas start reading:
+  = @gas_bill.gas_start_reading
+%p
+  %b Gas end reading:
+  = @gas_bill.gas_end_reading
+%p
+  %b Net cost:
+  = @gas_bill.net_cost
+%p
+  %b Gross cost:
+  = @gas_bill.gross_cost
+%p
+  %b Active:
+  = @gas_bill.active
+%p
+  %b Members:
+  = @gas_bill.members
+
+= link_to 'Edit', edit_gas_bill_path(@gas_bill)
+\|
+= link_to 'Back', gas_bills_path

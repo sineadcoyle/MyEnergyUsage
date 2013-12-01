@@ -1,0 +1,34 @@
+= form_for @gas_bill do |f|
+  - if @gas_bill.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@gas_bill.errors.count, "error")} prohibited this gas_bill from being saved:"
+      %ul
+        - @gas_bill.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :start_date
+    = f.datetime_select :start_date
+  .field
+    = f.label :end_date
+    = f.datetime_select :end_date
+  .field
+    = f.label :gas_start_reading
+    = f.number_field :gas_start_reading
+  .field
+    = f.label :gas_end_reading
+    = f.number_field :gas_end_reading
+  .field
+    = f.label :net_cost
+    = f.text_field :net_cost
+  .field
+    = f.label :gross_cost
+    = f.text_field :gross_cost
+  .field
+    = f.label :active
+    = f.check_box :active
+  .field
+    = f.label :members
+    = f.text_field :members
+  .actions
+    = f.submit 'Save'
