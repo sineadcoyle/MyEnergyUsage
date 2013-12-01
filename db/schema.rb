@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201160924) do
+ActiveRecord::Schema.define(version: 20131201161743) do
 
   create_table "building_energy_ratings", force: true do |t|
     t.string   "building_rating", limit: 1,                          null: false
@@ -55,18 +55,21 @@ ActiveRecord::Schema.define(version: 20131201160924) do
   add_index "gas_bills", ["utility_provider_id"], name: "index_gas_bills_on_utility_provider_id", using: :btree
 
   create_table "members", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                        default: "", null: false
+    t.string   "encrypted_password",           default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "default_gas_provider"
+    t.integer  "default_electricity_provider"
+    t.integer  "default_oil_provider"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
