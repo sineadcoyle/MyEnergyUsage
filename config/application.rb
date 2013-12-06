@@ -23,7 +23,8 @@ module MyEnergyUsage
     # Sets templates to use haml
     config.generators do |g|
       g.template_engine :haml
-      g.test_framework :shoulda  
+      g.test_framework :shoulda 
+      g.fallbacks[:shoulda] = :test_unit 
       g.fixture_replacement :factory_girl
     end
     
