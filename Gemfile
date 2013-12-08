@@ -61,3 +61,8 @@ group :test do
   gem 'shoulda'
   gem 'cucumber-rails'
 end
+
+# Development group
+group :development do
+  gem 'rails_layout'
+end
