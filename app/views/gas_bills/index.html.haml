@@ -9,7 +9,7 @@
     %th Net cost
     %th Gross cost
     %th Active
-    %th Members
+    %th Users
     %th
     %th
     %th
@@ -23,7 +23,7 @@
       %td= gas_bill.net_cost
       %td= gas_bill.gross_cost
       %td= gas_bill.active
-      %td= gas_bill.members
+      %td= gas_bill.users
       %td= link_to 'Show', gas_bill
       %td= link_to 'Edit', edit_gas_bill_path(gas_bill)
       %td= link_to 'Destroy', gas_bill, :method => :delete, :data => { :confirm => 'Are you sure?' }

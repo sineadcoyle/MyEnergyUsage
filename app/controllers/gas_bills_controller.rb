@@ -69,6 +69,6 @@ class GasBillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gas_bill_params
-      params.require(:gas_bill).permit(:start_date, :end_date, :gas_start_reading, :gas_end_reading, :net_cost, :gross_cost, :active, :members)
+      params.require(:gas_bill).permit(:start_date, :end_date, :gas_start_reading, :gas_end_reading, :net_cost, :gross_cost, :active, :users)
     end
 end

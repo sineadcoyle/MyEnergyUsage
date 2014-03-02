@@ -10,7 +10,7 @@
     %th Night cost
     %th Gross cost
     %th Active
-    %th Members
+    %th Users
     %th
     %th
     %th
@@ -25,7 +25,7 @@
       %td= electricity_bill.night_cost
       %td= electricity_bill.gross_cost
       %td= electricity_bill.active
-      %td= electricity_bill.members
+      %td= electricity_bill.users
       %td= link_to 'Show', electricity_bill
       %td= link_to 'Edit', edit_electricity_bill_path(electricity_bill)
       %td= link_to 'Destroy', electricity_bill, :method => :delete, :data => { :confirm => 'Are you sure?' }

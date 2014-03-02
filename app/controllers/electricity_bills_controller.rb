@@ -69,6 +69,6 @@ class ElectricityBillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def electricity_bill_params
-      params.require(:electricity_bill).permit(:start_date, :end_date, :electricity_day_consumption, :electricity_night_consumption, :day_cost, :night_cost, :gross_cost, :active, :members_id)
+      params.require(:electricity_bill).permit(:start_date, :end_date, :electricity_day_consumption, :electricity_night_consumption, :day_cost, :night_cost, :gross_cost, :active, :users_id)
     end
 end
