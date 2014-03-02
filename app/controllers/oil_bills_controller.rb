@@ -69,6 +69,6 @@ class OilBillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def oil_bill_params
-      params.require(:oil_bill).permit(:start_date, :end_date, :volume, :net_cost, :gross_cost, :members_id)
+      params.require(:oil_bill).permit(:start_date, :end_date, :volume, :net_cost, :gross_cost, :users_id)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201161743) do
+ActiveRecord::Schema.define(version: 20140302210557) do
 
   create_table "building_energy_ratings", force: true do |t|
     t.string   "building_rating", limit: 1,                          null: false
@@ -29,13 +29,13 @@ ActiveRecord::Schema.define(version: 20131201161743) do
     t.decimal  "night_cost",                    precision: 10, scale: 0
     t.decimal  "gross_cost",                    precision: 10, scale: 0
     t.boolean  "active",                                                 null: false
-    t.integer  "members_id",                                             null: false
+    t.integer  "users_id",                                               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "utility_provider_id",                                    null: false
   end
 
-  add_index "electricity_bills", ["members_id"], name: "index_electricity_bills_on_members_id", using: :btree
+  add_index "electricity_bills", ["users_id"], name: "index_electricity_bills_on_users_id", using: :btree
   add_index "electricity_bills", ["utility_provider_id"], name: "index_electricity_bills_on_utility_provider_id", using: :btree
 
   create_table "gas_bills", force: true do |t|
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20131201161743) do
     t.decimal  "net_cost",            precision: 10, scale: 0
     t.decimal  "gross_cost",          precision: 10, scale: 0
     t.boolean  "active",                                       null: false
-    t.integer  "members_id",                                   null: false
+    t.integer  "users_id",                                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "utility_provider_id",                          null: false
@@ -54,7 +54,22 @@ ActiveRecord::Schema.define(version: 20131201161743) do
 
   add_index "gas_bills", ["utility_provider_id"], name: "index_gas_bills_on_utility_provider_id", using: :btree
 
-  create_table "members", force: true do |t|
+  create_table "oil_bills", force: true do |t|
+    t.datetime "start_date",                                   null: false
+    t.datetime "end_date",                                     null: false
+    t.decimal  "volume",              precision: 10, scale: 0, null: false
+    t.decimal  "net_cost",            precision: 10, scale: 0
+    t.decimal  "gross_cost",          precision: 10, scale: 0
+    t.integer  "users_id",                                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "utility_provider_id",                          null: false
+  end
+
+  add_index "oil_bills", ["users_id"], name: "index_oil_bills_on_users_id", using: :btree
+  add_index "oil_bills", ["utility_provider_id"], name: "index_oil_bills_on_utility_provider_id", using: :btree
+
+  create_table "users", force: true do |t|
     t.string   "email",                        default: "", null: false
     t.string   "encrypted_password",           default: "", null: false
     t.string   "reset_password_token"
@@ -72,23 +87,8 @@ ActiveRecord::Schema.define(version: 20131201161743) do
     t.integer  "default_oil_provider"
   end
 
-  add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
-  add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
-
-  create_table "oil_bills", force: true do |t|
-    t.datetime "start_date",                                   null: false
-    t.datetime "end_date",                                     null: false
-    t.decimal  "volume",              precision: 10, scale: 0, null: false
-    t.decimal  "net_cost",            precision: 10, scale: 0
-    t.decimal  "gross_cost",          precision: 10, scale: 0
-    t.integer  "members_id",                                   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "utility_provider_id",                          null: false
-  end
-
-  add_index "oil_bills", ["members_id"], name: "index_oil_bills_on_members_id", using: :btree
-  add_index "oil_bills", ["utility_provider_id"], name: "index_oil_bills_on_utility_provider_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "utility_providers", force: true do |t|
     t.string   "name"

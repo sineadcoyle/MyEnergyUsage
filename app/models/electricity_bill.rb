@@ -1,3 +1,3 @@
 class ElectricityBill < ActiveRecord::Base
-  belongs_to :members
+  belongs_to :users
 end
