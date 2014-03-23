@@ -53,6 +53,12 @@ gem 'devise'
 # Haml
 gem 'haml-rails'
 
+#SentientUser for current_user method
+gem 'sentient_user'
+
+#Clerk - adds creator and updater to database tables
+gem 'clerk'
+
 # Testing
 group :test do
   gem 'cucumber-rails', :require => false

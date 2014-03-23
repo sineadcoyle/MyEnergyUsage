@@ -11,14 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302210557) do
+ActiveRecord::Schema.define(version: 20140323193619) do
 
   create_table "building_energy_ratings", force: true do |t|
     t.string   "building_rating", limit: 1,                          null: false
     t.decimal  "annual_energy",             precision: 10, scale: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by_id",                                      null: false
+    t.integer  "updated_by_id"
   end
+
+  add_index "building_energy_ratings", ["created_by_id"], name: "index_building_energy_ratings_on_created_by_id", using: :btree
+  add_index "building_energy_ratings", ["updated_by_id"], name: "index_building_energy_ratings_on_updated_by_id", using: :btree
 
   create_table "electricity_bills", force: true do |t|
     t.datetime "start_date",                                             null: false
@@ -33,8 +38,12 @@ ActiveRecord::Schema.define(version: 20140302210557) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "utility_provider_id",                                    null: false
+    t.integer  "created_by_id",                                          null: false
+    t.integer  "updated_by_id"
   end
 
+  add_index "electricity_bills", ["created_by_id"], name: "index_electricity_bills_on_created_by_id", using: :btree
+  add_index "electricity_bills", ["updated_by_id"], name: "index_electricity_bills_on_updated_by_id", using: :btree
   add_index "electricity_bills", ["users_id"], name: "index_electricity_bills_on_users_id", using: :btree
   add_index "electricity_bills", ["utility_provider_id"], name: "index_electricity_bills_on_utility_provider_id", using: :btree
 
@@ -50,8 +59,12 @@ ActiveRecord::Schema.define(version: 20140302210557) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "utility_provider_id",                          null: false
+    t.integer  "created_by_id",                                null: false
+    t.integer  "updated_by_id"
   end
 
+  add_index "gas_bills", ["created_by_id"], name: "index_gas_bills_on_created_by_id", using: :btree
+  add_index "gas_bills", ["updated_by_id"], name: "index_gas_bills_on_updated_by_id", using: :btree
   add_index "gas_bills", ["utility_provider_id"], name: "index_gas_bills_on_utility_provider_id", using: :btree
 
   create_table "oil_bills", force: true do |t|
@@ -64,8 +77,12 @@ ActiveRecord::Schema.define(version: 20140302210557) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "utility_provider_id",                          null: false
+    t.integer  "created_by_id",                                null: false
+    t.integer  "updated_by_id"
   end
 
+  add_index "oil_bills", ["created_by_id"], name: "index_oil_bills_on_created_by_id", using: :btree
+  add_index "oil_bills", ["updated_by_id"], name: "index_oil_bills_on_updated_by_id", using: :btree
   add_index "oil_bills", ["users_id"], name: "index_oil_bills_on_users_id", using: :btree
   add_index "oil_bills", ["utility_provider_id"], name: "index_oil_bills_on_utility_provider_id", using: :btree
 
@@ -85,10 +102,14 @@ ActiveRecord::Schema.define(version: 20140302210557) do
     t.integer  "default_gas_provider"
     t.integer  "default_electricity_provider"
     t.integer  "default_oil_provider"
+    t.integer  "created_by_id",                             null: false
+    t.integer  "updated_by_id"
   end
 
+  add_index "users", ["created_by_id"], name: "index_users_on_created_by_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["updated_by_id"], name: "index_users_on_updated_by_id", using: :btree
 
   create_table "utility_providers", force: true do |t|
     t.string   "name"
@@ -96,6 +117,11 @@ ActiveRecord::Schema.define(version: 20140302210557) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by_id",                            null: false
+    t.integer  "updated_by_id"
   end
+
+  add_index "utility_providers", ["created_by_id"], name: "index_utility_providers_on_created_by_id", using: :btree
+  add_index "utility_providers", ["updated_by_id"], name: "index_utility_providers_on_updated_by_id", using: :btree
 
 end
