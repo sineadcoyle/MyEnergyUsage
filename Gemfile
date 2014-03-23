@@ -66,6 +66,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'shoulda'
   gem 'cucumber-rails'
+  gem 'cucumber'
 end
 
 # Development group
