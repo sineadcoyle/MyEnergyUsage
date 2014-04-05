@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323193619) do
+ActiveRecord::Schema.define(version: 20140405182237) do
 
   create_table "building_energy_ratings", force: true do |t|
     t.string   "building_rating", limit: 1,                          null: false
@@ -102,14 +102,10 @@ ActiveRecord::Schema.define(version: 20140323193619) do
     t.integer  "default_gas_provider"
     t.integer  "default_electricity_provider"
     t.integer  "default_oil_provider"
-    t.integer  "created_by_id",                             null: false
-    t.integer  "updated_by_id"
   end
 
-  add_index "users", ["created_by_id"], name: "index_users_on_created_by_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["updated_by_id"], name: "index_users_on_updated_by_id", using: :btree
 
   create_table "utility_providers", force: true do |t|
     t.string   "name"
