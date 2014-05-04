@@ -1,4 +1,4 @@
-module NavigationHelpers
+module UserSetup
   def path_to(page_name)
     case page_name
     when /the home\s?page/
@@ -19,4 +19,5 @@ module NavigationHelpers
     end
   end
 end
-World(NavigationHelpers)
+
+World(UserSetup)
